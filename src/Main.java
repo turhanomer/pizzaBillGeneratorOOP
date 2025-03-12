@@ -4,9 +4,14 @@ public class Main {
         Pizza basePizza = new Pizza(false);
 
         // method call from class
-        basePizza.addExtraOppings();
-        basePizza.addExtraCheese();
-        basePizza.takeAway();
-        basePizza.getBill();
+//        basePizza.addExtraToppings();
+//        basePizza.addExtraCheese();
+//        basePizza.takeAway();
+//        basePizza.getBill();
+
+        DeluxPizza dp = new DeluxPizza(false);
+        dp.addExtraToppings();
+        dp.addExtraCheese();
+        dp.getBill();
     }
 }

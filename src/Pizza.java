@@ -3,8 +3,12 @@ private Integer price;
 private Boolean veg;
 
 private Integer extraCheesePrice = 100;
-private Integer extraOppingsPrice = 150;
+private Integer extraToppingsPrice = 150;
 private Integer backPackPrice = 20;
+private Integer basePizzaPrice;
+private boolean isExtraCheeseAdded = false;
+private boolean isExtraToppingsAdded = false;
+private boolean isOptedForTakeAway = false;
 
 //constructor method
 public Pizza(Boolean veg){
@@ -15,22 +19,37 @@ public Pizza(Boolean veg){
     }else{
         this.price = 400;
     }
+    basePizzaPrice = this.price;
 }
 
 // create method and trade at the price
 public void addExtraCheese(){
-    System.out.println("Extra cheese added!");
+    isExtraCheeseAdded = true;
     this.price += extraCheesePrice;
 }
-public void addExtraOppings(){
-    System.out.println("Extra oppings added!");
-    this.price += extraOppingsPrice;
+public void addExtraToppings(){
+    isExtraToppingsAdded = true;
+    this.price += extraToppingsPrice;
 }
 public void takeAway(){
-    System.out.println("Take away opted!");
+    isOptedForTakeAway = true;
     this.price += backPackPrice;
 }
+
+// create a bill
 public void getBill(){
-    System.out.println(this.price);
+    String bill = "";
+    System.out.println("Pizza: " + basePizzaPrice);
+    if (isExtraCheeseAdded){
+        bill += "Extra cheese added:" + extraCheesePrice + "\n";
+    }
+    if (isExtraToppingsAdded){
+        bill += "Extra toppings added:" + extraToppingsPrice + "\n";
+    }
+    if (isOptedForTakeAway){
+        bill += "Take Away:" + backPackPrice + "\n";
+    }
+    bill += "Bill:" + this.price + "\n";
+    System.out.println(bill);
 }
 }
